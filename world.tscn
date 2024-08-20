@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://boiqh63ylaiak"]
+
+[ext_resource type="PackedScene" uid="uid://b5wgio111bqjj" path="res://player.tscn" id="1_y0ygk"]
+[ext_resource type="AudioStream" uid="uid://stn7pb4lhlm0" path="res://Lost in the Shadows.mp3" id="2_00608"]
+[ext_resource type="Texture2D" uid="uid://d057vsgqixtqf" path="res://image_2024-08-15_104826712 (1).png" id="4_dodiv"]
+[ext_resource type="PackedScene" uid="uid://dffaykirlfhh3" path="res://area_of_interation.tscn" id="4_j11jf"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n8u32"]
+texture = ExtResource("4_dodiv")
+texture_region_size = Vector2i(1284, 1284)
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-640, -632, 664, -648, 664, 648, -640, 648)
+0:1/0 = 0
+0:1/0/terrain_set = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(656, 648, 656, -640, -632, -632, -648, 648)
+
+[sub_resource type="TileSet" id="TileSet_vw02q"]
+physics_layer_0/collision_layer = 1
+terrain_set_0/mode = 2
+terrain_set_0/terrain_0/name = "Grass"
+terrain_set_0/terrain_0/color = Color(0.619566, 0.527979, 0.36103, 1)
+sources/3 = SubResource("TileSetAtlasSource_n8u32")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hgg1"]
+size = Vector2(340, 20)
+
+[node name="world" type="Node2D"]
+position = Vector2(1, 0)
+
+[node name="Player" parent="." instance=ExtResource("1_y0ygk")]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_00608")
+volume_db = 0.263
+autoplay = true
+bus = &"Music"
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_vw02q")
+format = 2
+
+[node name="Area of interation" parent="." instance=ExtResource("4_j11jf")]
+position = Vector2(-320, -93)
+interact_label = "test "
+interact_type = "print_text"
+interact_value = "yay worked"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(148, 210)
+shape = SubResource("RectangleShape2D_2hgg1")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+position = Vector2(-0.49998, 0.500015)
+scale = Vector2(0.265576, 0.00817756)
+texture = ExtResource("4_dodiv")
