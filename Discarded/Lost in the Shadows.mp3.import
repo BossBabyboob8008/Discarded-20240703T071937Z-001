@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://stn7pb4lhlm0"
+path="res://.godot/imported/Lost in the Shadows.mp3-d966f8420e17b26e59b2595511a762dc.mp3str"
+
+[deps]
+
+source_file="res://Lost in the Shadows.mp3"
+dest_files=["res://.godot/imported/Lost in the Shadows.mp3-d966f8420e17b26e59b2595511a762dc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
