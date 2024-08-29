@@ -1,7 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://23q7xa7scgm3"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_32ufu"]
-[ext_resource type="Texture2D" uid="uid://n5kd0l1l6u71" path="res://New Piskel-1.png (26).png" id="2_15rsn"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_63f3u"]
+load_path = "res://.godot/imported/New Piskel-1.png (26).png-0f384c76ad6f8734f898a17348dbc057.ctex"
 
 [node name="menu" type="Control"]
 layout_mode = 3
@@ -37,7 +39,7 @@ text = "Quit"
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(559, 184)
 scale = Vector2(0.109792, 0.0910714)
-texture = ExtResource("2_15rsn")
+texture = SubResource("CompressedTexture2D_63f3u")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]

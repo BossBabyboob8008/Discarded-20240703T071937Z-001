@@ -84,16 +84,3 @@ func wall_slide(delta):
 	update_state()
 	update_animation(direction)
 	move_and_slide()
-
-func _on_area_2d_area_entered(area):
-	all_interactions.insert(0, area)
-	update_interactions()
-	
-func _on_area_2d_area_exited(area):
-	all_interactions.erase(area)
-	update_interactions()
-func update_interactions():
-	if all_interactions:
-		InteractionLabel = all_interactions[0].interact_label
-	else:
-		InteractionLabel.text = ""

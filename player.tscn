@@ -1,8 +1,7 @@
-[gd_scene load_steps=49 format=3 uid="uid://b5wgio111bqjj"]
+[gd_scene load_steps=48 format=3 uid="uid://b5wgio111bqjj"]
 
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_1y5uf"]
 [ext_resource type="Texture2D" uid="uid://cuhbi4ce5npem" path="res://New Piskel.png" id="2_8hk5o"]
-[ext_resource type="Texture2D" uid="uid://fgodj4drb0s" path="res://slime-Sheet.png" id="2_gdihu"]
 [ext_resource type="Texture2D" uid="uid://cws74cyjux55a" path="res://SLIME RUN.png" id="3_681fj"]
 [ext_resource type="Texture2D" uid="uid://d0cc2iodjrryg" path="res://SLIME JUMP.png" id="4_gjydv"]
 [ext_resource type="Texture2D" uid="uid://dt8a3ydwivnsd" path="res://WALL GRAB SLIME.png" id="4_lxm3j"]
@@ -79,24 +78,27 @@ region = Rect2(1536, 768, 768, 768)
 atlas = ExtResource("4_lxm3j")
 region = Rect2(0, 1536, 768, 768)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sp7h4"]
+load_path = "res://.godot/imported/slime-Sheet.png-0db612da14f50bb9613432929cc89cf9.ctex"
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_vdp77"]
-atlas = ExtResource("2_gdihu")
+atlas = SubResource("CompressedTexture2D_sp7h4")
 region = Rect2(0, 50, 32, 25)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ov2bg"]
-atlas = ExtResource("2_gdihu")
+atlas = SubResource("CompressedTexture2D_sp7h4")
 region = Rect2(32, 50, 32, 25)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1dqrr"]
-atlas = ExtResource("2_gdihu")
+atlas = SubResource("CompressedTexture2D_sp7h4")
 region = Rect2(64, 50, 32, 25)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yr2mv"]
-atlas = ExtResource("2_gdihu")
+atlas = SubResource("CompressedTexture2D_sp7h4")
 region = Rect2(96, 50, 32, 25)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bfpe5"]
-atlas = ExtResource("2_gdihu")
+atlas = SubResource("CompressedTexture2D_sp7h4")
 region = Rect2(128, 50, 32, 25)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bxx51"]
@@ -258,8 +260,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f8vfn"]
-radius = 10.9513
-height = 28.0575
+radius = 6.00198
+height = 22.0
 
 [sub_resource type="Animation" id="Animation_8a8t0"]
 length = 1.25
@@ -467,10 +469,8 @@ _data = {
 "jump": SubResource("Animation_yapl7")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_dman7"]
-radius = 16.0312
-
 [node name="Player" type="Node2D"]
+position = Vector2(197, 44)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(60, 74)
@@ -480,11 +480,10 @@ script = ExtResource("1_1y5uf")
 position = Vector2(-9.53674e-07, 3)
 scale = Vector2(0.0444079, 0.0394737)
 sprite_frames = SubResource("SpriteFrames_wei4r")
-animation = &"falling "
+animation = &"IDLE"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-visible = false
-position = Vector2(0, 2)
+position = Vector2(0, 9)
 rotation = 4.71438
 shape = SubResource("CapsuleShape2D_f8vfn")
 
@@ -496,33 +495,11 @@ libraries = {
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(0, -10)
 zoom = Vector2(4, 4)
+limit_left = 0
+limit_top = -1000000
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 drag_left_margin = 0.0
 drag_top_margin = 0.0
 drag_right_margin = 0.0
 drag_bottom_margin = 0.0
-
-[node name="Interaction Components" type="Node2D" parent="CharacterBody2D"]
-position = Vector2(-60, -74)
-
-[node name="Area2D" type="Area2D" parent="CharacterBody2D/Interaction Components"]
-collision_layer = 0
-collision_mask = 2
-monitorable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Interaction Components/Area2D"]
-position = Vector2(60, 74)
-shape = SubResource("CircleShape2D_dman7")
-
-[node name="Label" type="Label" parent="CharacterBody2D/Interaction Components"]
-offset_left = -53.0
-offset_top = 39.0
-offset_right = 178.0
-offset_bottom = 62.0
-text = "test"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[connection signal="area_entered" from="CharacterBody2D/Interaction Components/Area2D" to="CharacterBody2D" method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="CharacterBody2D/Interaction Components/Area2D" to="CharacterBody2D" method="_on_area_2d_area_exited"]
