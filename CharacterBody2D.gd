@@ -84,3 +84,4 @@ func wall_slide(delta):
 	update_state()
 	update_animation(direction)
 	move_and_slide()
+	

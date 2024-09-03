@@ -79,7 +79,6 @@ atlas = ExtResource("4_lxm3j")
 region = Rect2(0, 1536, 768, 768)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sp7h4"]
-load_path = "res://.godot/imported/slime-Sheet.png-0db612da14f50bb9613432929cc89cf9.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vdp77"]
 atlas = SubResource("CompressedTexture2D_sp7h4")
@@ -469,10 +468,10 @@ _data = {
 "jump": SubResource("Animation_yapl7")
 }
 
-[node name="Player" type="Node2D"]
-position = Vector2(197, 44)
+[node name="Player" type="Node2D" groups=["Player"]]
+position = Vector2(13, 7)
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["Player"]]
 position = Vector2(60, 74)
 script = ExtResource("1_1y5uf")
 

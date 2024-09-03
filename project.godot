@@ -15,9 +15,18 @@ run/main_scene="res://menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Gamemanager="*res://Super Mountain Dusk Files/gamemanager.gd"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/AS2P/plugin.cfg")
+
+[global_group]
+
+Player=""
+lable=""
 
 [input]
 
