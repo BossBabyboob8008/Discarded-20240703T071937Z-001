@@ -67,10 +67,10 @@ offset_right = 703.0
 offset_bottom = 479.0
 text = "Back"
 
-[connection signal="value_changed" from="Music" to="." method="_on_h_slider_value_changed"]
 [connection signal="value_changed" from="Music" to="." method="_on_music_value_changed"]
-[connection signal="value_changed" from="Master" to="." method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="Music" to="." method="_on_h_slider_value_changed"]
 [connection signal="value_changed" from="Master" to="." method="_on_master_value_changed"]
-[connection signal="value_changed" from="SFX" to="." method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="Master" to="." method="_on_h_slider_value_changed"]
 [connection signal="value_changed" from="SFX" to="." method="_on_sfx_value_changed"]
+[connection signal="value_changed" from="SFX" to="." method="_on_h_slider_value_changed"]
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://dyr2kh3es4aqm"]
+[gd_scene load_steps=14 format=4 uid="uid://dyr2kh3es4aqm"]
 
 [ext_resource type="PackedScene" uid="uid://b5wgio111bqjj" path="res://player.tscn" id="1_dg7nu"]
 [ext_resource type="Texture2D" uid="uid://nf46xd4bq6kb" path="res://images.png" id="2_fudlv"]
@@ -7,8 +7,9 @@
 [ext_resource type="AudioStream" uid="uid://stn7pb4lhlm0" path="res://Lost in the Shadows.mp3" id="5_nvp71"]
 [ext_resource type="PackedScene" uid="uid://cpot6ul7d4awd" path="res://coin.tscn" id="6_ir2jg"]
 [ext_resource type="Script" path="res://label2.gd" id="7_tdojx"]
+[ext_resource type="Script" path="res://death.gd" id="8_go83w"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2knap"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fq30a"]
 resource_name = "grass"
 texture = ExtResource("2_fudlv")
 1:0/next_alternative_id = 2
@@ -61,7 +62,7 @@ texture = ExtResource("2_fudlv")
 3:1/0 = 0
 3:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bb7td"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vp36c"]
 resource_name = "wall"
 texture = ExtResource("2_fudlv")
 3:0/0 = 0
@@ -102,7 +103,7 @@ texture = ExtResource("2_fudlv")
 2:3/0/terrains_peering_bit/top_side = 0
 2:3/0/terrains_peering_bit/top_right_corner = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_473sc"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v2rxp"]
 resource_name = "extras"
 texture = ExtResource("2_fudlv")
 3:3/0 = 0
@@ -129,9 +130,9 @@ terrain_set_0/terrain_1/name = "grass 1"
 terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
 terrain_set_0/terrain_2/name = "extras"
 terrain_set_0/terrain_2/color = Color(0.46875, 0.5, 0.25, 1)
-sources/0 = SubResource("TileSetAtlasSource_2knap")
-sources/1 = SubResource("TileSetAtlasSource_bb7td")
-sources/2 = SubResource("TileSetAtlasSource_473sc")
+sources/0 = SubResource("TileSetAtlasSource_fq30a")
+sources/1 = SubResource("TileSetAtlasSource_vp36c")
+sources/2 = SubResource("TileSetAtlasSource_v2rxp")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fpmk1"]
 size = Vector2(313, 18)
@@ -162,6 +163,7 @@ offset_right = 600.0
 offset_bottom = 138.0
 texture = ExtResource("3_jtgd0")
 stretch_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.7, 0)
@@ -173,6 +175,7 @@ offset_right = 450.0
 offset_bottom = 162.0
 texture = ExtResource("4_qg8os")
 stretch_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_nvp71")
@@ -194,7 +197,8 @@ offset_bottom = 23.0
 script = ExtResource("7_tdojx")
 
 [node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("8_go83w")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="death" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(723.5, 501)
 shape = SubResource("RectangleShape2D_fpmk1")
