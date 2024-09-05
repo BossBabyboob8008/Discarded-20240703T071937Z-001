@@ -11,13 +11,17 @@ config_version=5
 [application]
 
 config/name="Discarded"
-run/main_scene="res://menu.tscn"
+run/main_scene="res://Levels/menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
-Gamemanager="*res://Super Mountain Dusk Files/gamemanager.gd"
+Gamemanager="*res://Scrips/gamemanager.gd"
+
+[display]
+
+window/size/borderless=true
 
 [editor_plugins]
 
